@@ -14,6 +14,7 @@
     </div>
     <nav>
       <a href="#features">Features</a>
+      <a href="#account">Account</a>
       <a href="#feed">Posts</a>
       <a href="#credits">Credits</a>
     </nav>
@@ -26,8 +27,8 @@
         <h1>Das Social Network für Gamer.</h1>
         <p class="subline">GameNet verbindet Spieler, Profile, Lieblingsgames, Clans und Gaming-Posts in einer modernen Dark-Mode-Plattform.</p>
         <div class="actions">
-          <a class="button primary" href="#feed">Post erstellen</a>
-          <a class="button ghost" href="#features">Features</a>
+          <a class="button primary" href="#account">Account testen</a>
+          <a class="button ghost" href="#feed">Post erstellen</a>
         </div>
       </div>
 
@@ -40,7 +41,7 @@
           </div>
         </div>
         <div class="stat-grid">
-          <div><strong>1.250</strong><span>GN Credits</span></div>
+          <div><strong>Account</strong><span>JuGroup Auth</span></div>
           <div><strong>Live</strong><span>Posts DB</span></div>
           <div><strong>8</strong><span>Badges</span></div>
         </div>
@@ -53,8 +54,8 @@
       <h2>Gebaut für die erste Beta.</h2>
       <div class="cards">
         <article class="card">
-          <h3>Gamer-Profile</h3>
-          <p>Zeige Plattformen, Lieblingsspiele, Setup, Badges und deinen Status.</p>
+          <h3>Accounts</h3>
+          <p>Login und Registrierung laufen über dein JuGroup-Kundenportal-Firebase-Projekt.</p>
         </article>
         <article class="card">
           <h3>Posts-Datenbank</h3>
@@ -65,6 +66,30 @@
           <p>Später entstehen Bereiche für Fortnite, Minecraft, Roblox, GTA und mehr.</p>
         </article>
       </div>
+    </section>
+
+    <section id="account" class="section split">
+      <div>
+        <p class="eyebrow">JuGroup Accounts</p>
+        <h2>Account erstellen oder anmelden</h2>
+        <p>Accounts laufen getrennt über das Firebase-Projekt <code>jugroup-kundenportal</code>. Die Posts bleiben im GameNet-Projekt.</p>
+      </div>
+
+      <form id="account-form" class="post-form">
+        <label for="account-email">E-Mail</label>
+        <input id="account-email" name="email" type="email" autocomplete="email" placeholder="deine@email.de" />
+
+        <label for="account-password">Passwort</label>
+        <input id="account-password" name="password" type="password" autocomplete="current-password" placeholder="Mindestens 6 Zeichen" />
+
+        <div class="form-actions">
+          <button id="register-button" class="button primary" type="button">Registrieren</button>
+          <button id="login-button" class="button ghost" type="button">Anmelden</button>
+          <button id="logout-button" class="button ghost" type="button">Abmelden</button>
+        </div>
+
+        <p id="account-status" class="status-text">Nicht angemeldet.</p>
+      </form>
     </section>
 
     <section id="feed" class="section split">
