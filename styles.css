@@ -131,11 +131,16 @@ code {
   color: var(--accent);
 }
 
-.actions {
+.actions,
+.form-actions {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
   margin-top: 32px;
+}
+
+.form-actions {
+  margin-top: 6px;
 }
 
 .button {
