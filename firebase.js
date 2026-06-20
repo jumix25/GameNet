@@ -9,8 +9,15 @@ import {
   query,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
-const firebaseConfig = {
+const postsFirebaseConfig = {
   apiKey: "AIzaSyDS-UpTUZsdqFSNUxwtxf3Ep9-n9ueGG4E",
   authDomain: "gamenet-e3b1c.firebaseapp.com",
   projectId: "gamenet-e3b1c",
@@ -20,10 +27,39 @@ const firebaseConfig = {
   measurementId: "G-VC0HTWW3TF"
 };
 
-export const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const accountsFirebaseConfig = {
+  apiKey: "AIzaSyCrb99DJuHo5noNQ7AnnUdugjR9YpWEGfU",
+  authDomain: "jugroup-kundenportal.firebaseapp.com",
+  projectId: "jugroup-kundenportal",
+  storageBucket: "jugroup-kundenportal.firebasestorage.app",
+  messagingSenderId: "39867975617",
+  appId: "1:39867975617:web:1dbb32a17827aeeb9a1140",
+  measurementId: "G-K4QBB89QNV"
+};
+
+export const postsApp = initializeApp(postsFirebaseConfig, "gamenet-posts");
+export const accountsApp = initializeApp(accountsFirebaseConfig, "gamenet-accounts");
+
+export const db = getFirestore(postsApp);
+export const auth = getAuth(accountsApp);
 
 const postsCollection = collection(db, "posts");
+
+export async function createAccount({ email, password }) {
+  return createUserWithEmailAndPassword(auth, email.trim(), password);
+}
+
+export async function loginAccount({ email, password }) {
+  return signInWithEmailAndPassword(auth, email.trim(), password);
+}
+
+export async function logoutAccount() {
+  return signOut(auth);
+}
+
+export function listenToAccount(callback) {
+  return onAuthStateChanged(auth, callback);
+}
 
 export async function createPost({ username, text }) {
   const cleanUsername = username.trim().replace(/^@+/, "").slice(0, 24) || "gamenet_user";
@@ -57,7 +93,8 @@ export function listenToPosts(callback) {
 isSupported()
   .then((supported) => {
     if (supported) {
-      getAnalytics(app);
+      getAnalytics(postsApp);
+      getAnalytics(accountsApp);
       console.log("Firebase Analytics ist aktiv.");
     }
   })
@@ -65,4 +102,4 @@ isSupported()
     console.warn("Firebase Analytics konnte nicht gestartet werden:", error);
   });
 
-console.log("Firebase Firestore ist für GameNet Posts verbunden.");
+console.log("GameNet Firebase ist verbunden: Posts und Accounts getrennt.");
