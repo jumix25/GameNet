@@ -14,7 +14,7 @@
     </div>
     <nav>
       <a href="#features">Features</a>
-      <a href="#feed">Feed</a>
+      <a href="#feed">Posts</a>
       <a href="#credits">Credits</a>
     </nav>
   </header>
@@ -26,7 +26,7 @@
         <h1>Das Social Network für Gamer.</h1>
         <p class="subline">GameNet verbindet Spieler, Profile, Lieblingsgames, Clans und Gaming-Posts in einer modernen Dark-Mode-Plattform.</p>
         <div class="actions">
-          <a class="button primary" href="#feed">Beta ansehen</a>
+          <a class="button primary" href="#feed">Post erstellen</a>
           <a class="button ghost" href="#features">Features</a>
         </div>
       </div>
@@ -41,7 +41,7 @@
         </div>
         <div class="stat-grid">
           <div><strong>1.250</strong><span>GN Credits</span></div>
-          <div><strong>24</strong><span>Posts</span></div>
+          <div><strong>Live</strong><span>Posts DB</span></div>
           <div><strong>8</strong><span>Badges</span></div>
         </div>
         <p class="mini-post">Wer spielt heute Fortnite oder Minecraft?</p>
@@ -57,8 +57,8 @@
           <p>Zeige Plattformen, Lieblingsspiele, Setup, Badges und deinen Status.</p>
         </article>
         <article class="card">
-          <h3>Gaming-Feed</h3>
-          <p>Poste Updates, Fragen, Clips-Ideen und suche Mitspieler.</p>
+          <h3>Posts-Datenbank</h3>
+          <p>Firebase Firestore speichert in dieser Beta nur GameNet-Posts.</p>
         </article>
         <article class="card">
           <h3>Communities</h3>
@@ -69,21 +69,31 @@
 
     <section id="feed" class="section split">
       <div>
-        <p class="eyebrow">Live Preview</p>
-        <h2>Feed-Vorschau</h2>
-        <p>Die Beta startet statisch. Danach kommen Login, echte Posts und Profile.</p>
+        <p class="eyebrow">Firebase Posts</p>
+        <h2>Post erstellen</h2>
+        <p>Diese Beta nutzt Firestore nur für die Collection <code>posts</code>. Schreibe einen Test-Post und er erscheint live im Feed.</p>
+
+        <form id="post-form" class="post-form">
+          <label for="post-username">Username</label>
+          <input id="post-username" name="username" type="text" maxlength="24" value="Jumix" autocomplete="nickname" />
+
+          <label for="post-text">Post</label>
+          <textarea id="post-text" name="text" maxlength="280" placeholder="Was willst du auf GameNet posten?"></textarea>
+
+          <button class="button primary" type="submit">Post veröffentlichen</button>
+          <p id="post-status" class="status-text">Bereit für deinen ersten GameNet-Post.</p>
+        </form>
       </div>
-      <div class="feed">
-        <div class="post"><strong>@jumix</strong><p>GameNet kommt zurück. Dark, modern und für Gamer gebaut.</p></div>
-        <div class="post"><strong>@playerone</strong><p>Suche Team für Rocket League am Wochenende.</p></div>
-        <div class="post"><strong>@buildmaster</strong><p>Minecraft-Server-Ideen bitte in die Kommentare.</p></div>
+
+      <div id="posts-feed" class="feed">
+        <div class="post"><strong>@gamenet</strong><p>Posts werden geladen ...</p></div>
       </div>
     </section>
 
     <section id="credits" class="section credits">
       <p class="eyebrow">Beta Guthaben</p>
       <h2>GameNet Credits</h2>
-      <p>GN Credits sind zuerst nur eine interne Test-Währung ohne echten Geldwert. Später können damit Badges, Profilrahmen oder Themes freigeschaltet werden.</p>
+      <p>GN Credits sind zuerst nur eine interne Test-Währung ohne echten Geldwert. Die Datenbank wird aktuell aber nur für Posts verwendet.</p>
     </section>
   </main>
 
@@ -91,7 +101,6 @@
     <p>GameNet by JuGroup · Beta</p>
   </footer>
 
-  <script type="module" src="firebase.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
