@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameNet Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="login-page">
+  <main class="auth-shell">
+    <section class="auth-card">
+      <div class="brand auth-brand">
+        <div class="logo">GN</div>
+        <span>GameNet</span>
+      </div>
+
+      <p class="eyebrow">JuGroup Account</p>
+      <h1>Einloggen bei GameNet.</h1>
+      <p class="subline">Melde dich an oder erstelle einen Account. Danach kommst du in die Discord-like GameNet-App.</p>
+
+      <form id="account-form" class="post-form auth-form">
+        <label for="account-email">E-Mail</label>
+        <input id="account-email" name="email" type="email" autocomplete="email" placeholder="deine@email.de" />
+
+        <label for="account-password">Passwort</label>
+        <input id="account-password" name="password" type="password" autocomplete="current-password" placeholder="Mindestens 6 Zeichen" />
+
+        <div class="form-actions">
+          <button id="login-button" class="button primary" type="button">Anmelden</button>
+          <button id="register-button" class="button ghost" type="button">Registrieren</button>
+        </div>
+
+        <p id="account-status" class="status-text">Nicht angemeldet.</p>
+      </form>
+
+      <a class="small-link" href="index.html">Zurück zur Startseite</a>
+    </section>
+
+    <section class="auth-preview preview-card">
+      <p class="eyebrow">Nach dem Login</p>
+      <h2>GameNet App</h2>
+      <div class="mini-discord-preview">
+        <div></div><div></div><div></div>
+      </div>
+      <p class="mini-post">Server-Leiste, Channels, Feed und Mitgliederbereich im modernen Dark-Design.</p>
+    </section>
+  </main>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>
