@@ -124,6 +124,13 @@ h3 {
   line-height: 1.7;
 }
 
+code {
+  padding: 3px 7px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--accent);
+}
+
 .actions {
   display: flex;
   gap: 14px;
@@ -137,6 +144,7 @@ h3 {
   text-decoration: none;
   font-weight: 800;
   border: 1px solid var(--line);
+  cursor: pointer;
 }
 
 .primary {
@@ -152,7 +160,8 @@ h3 {
 .preview-card,
 .card,
 .post,
-.credits {
+.credits,
+.post-form {
   border: 1px solid var(--line);
   background: rgba(13, 17, 24, 0.76);
   backdrop-filter: blur(18px);
@@ -258,6 +267,47 @@ h3 {
 
 .post p {
   margin: 8px 0 0;
+}
+
+.post-form {
+  display: grid;
+  gap: 12px;
+  padding: 22px;
+  border-radius: 26px;
+  margin-top: 24px;
+}
+
+.post-form label {
+  color: var(--text);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.post-form input,
+.post-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  padding: 14px 16px;
+  font: inherit;
+  outline: none;
+}
+
+.post-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.post-form input:focus,
+.post-form textarea:focus {
+  border-color: rgba(68, 244, 200, 0.7);
+}
+
+.status-text {
+  margin: 0;
+  font-size: 14px !important;
 }
 
 .credits {
