@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameNet App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="app-page">
+  <main class="discord-shell">
+    <aside class="server-rail">
+      <a class="server-icon active" href="app.html">GN</a>
+      <button class="server-icon">+</button>
+      <button class="server-icon">JU</button>
+    </aside>
+
+    <aside class="channel-sidebar">
+      <div class="workspace-title">
+        <strong>GameNet</strong>
+        <span>Beta Hub</span>
+      </div>
+
+      <div class="channel-group">
+        <p>Textkanäle</p>
+        <button class="channel active"># allgemein</button>
+        <button class="channel"># fortnite</button>
+        <button class="channel"># minecraft</button>
+        <button class="channel"># setups</button>
+      </div>
+
+      <div class="channel-group">
+        <p>Voice</p>
+        <button class="channel">🔊 Lobby</button>
+        <button class="channel">🔊 Ranked</button>
+      </div>
+
+      <div class="user-panel">
+        <div class="avatar small">GN</div>
+        <div>
+          <strong id="current-user">Lädt ...</strong>
+          <span>online</span>
+        </div>
+        <button id="logout-button" class="icon-button">⎋</button>
+      </div>
+    </aside>
+
+    <section class="chat-area">
+      <header class="chat-header">
+        <div>
+          <strong># allgemein</strong>
+          <span>GameNet Beta Chat</span>
+        </div>
+        <a class="button ghost" href="index.html">Startseite</a>
+      </header>
+
+      <div id="posts-feed" class="message-list">
+        <div class="message-card"><strong>@gamenet</strong><p>Posts werden geladen ...</p></div>
+      </div>
+
+      <form id="post-form" class="message-composer">
+        <input id="post-username" type="text" maxlength="24" value="Jumix" aria-label="Username" />
+        <textarea id="post-text" maxlength="280" placeholder="Nachricht an #allgemein schreiben"></textarea>
+        <button class="button primary" type="submit">Senden</button>
+      </form>
+      <p id="post-status" class="status-text composer-status">Bereit.</p>
+    </section>
+
+    <aside class="member-sidebar">
+      <p class="member-title">Online</p>
+      <div class="member"><div class="avatar tiny">JX</div><span>Jumix</span></div>
+      <div class="member"><div class="avatar tiny">GN</div><span>GameNet Bot</span></div>
+      <div class="member"><div class="avatar tiny">JU</div><span>JuGroup</span></div>
+    </aside>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
